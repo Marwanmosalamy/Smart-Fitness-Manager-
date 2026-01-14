@@ -1,0 +1,448 @@
+:root {
+    /* Dark Theme (Default) */
+    --primary-color: #00d2ff;
+    --secondary-color: #3a7bd5;
+    --accent-color: #ff4b1f;
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --text-light: #f8fafc;
+    --text-dim: #94a3b8;
+    --border-color: #334155;
+    --font-main: 'Tajawal', sans-serif;
+    --success: #10b981;
+    --input-bg: #0f172a;
+    --input-text: #ffffff;
+}
+
+.light-theme {
+    --bg-dark: #f0f4f8;
+    --bg-card: #ffffff;
+    --text-light: #1e293b;
+    --text-dim: #64748b;
+    --border-color: #cbd5e1;
+    --input-bg: #ffffff;
+    --input-text: #1e293b;
+    /* Adjust highlights for light mode if needed */
+}
+
+/* Nav & Toggles */
+.top-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.nav-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-main);
+    transition: all 0.3s;
+}
+
+.nav-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Meal Cards & Expanded Layout */
+.meals-list {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.meal-card ul {
+    list-style: none; /* Removed defaults, will add spacing */
+    padding-left: 0;
+    margin: 5px 0;
+}
+
+.meal-card li {
+    margin-bottom: 5px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+}
+.light-theme .meal-card li {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.meal-card {
+    background: rgba(0, 210, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 15px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.meal-card h5 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.meal-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Exercise Items */
+.exercise-item {
+    background: var(--bg-card);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.exercise-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.exercise-name {
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.exercise-sets {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.video-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    background: rgba(255, 75, 31, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.video-link:hover {
+    background: rgba(255, 75, 31, 0.2);
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-section p {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+}
+
+/* Card Styles */
+.calculator-card, .plan-card {
+    background-color: var(--bg-card);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.calculator-card {
+    margin-bottom: 40px;
+    animation: slideUp 0.8s ease-out;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.section-label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(58, 123, 213, 0.2);
+}
+
+/* Radio Options */
+.radio-options {
+    display: flex;
+    gap: 15px;
+}
+
+.radio-box {
+    flex: 1;
+    position: relative;
+    cursor: pointer;
+}
+
+.radio-box input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-box span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.3s;
+
+    background-color: var(--input-bg);
+}
+
+.radio-box .icon {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    border: none;
+    background: none;
+}
+
+.radio-box input:checked ~ span {
+    border-color: var(--primary-color);
+    background-color: rgba(0, 210, 255, 0.1);
+    color: var(--primary-color);
+}
+
+/* Button */
+.cta-button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: var(--font-main);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(58, 123, 213, 0.4);
+}
+
+/* Results Section */
+.hidden {
+    display: none;
+}
+
+.results-section {
+    animation: fadeIn 1s ease;
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: 30px;
+    /* Remove fixed gradient, use variable or conditional background */
+    background: var(--bg-dark); 
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+/* Specific Override for Light Theme Results Header if needed more contrast */
+.light-theme .results-header {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.calories-result {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calories-result .number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--success);
+    line-height: 1.2;
+}
+
+.calories-result .unit {
+    color: var(--text-dim);
+}
+
+.plan-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .plan-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.plan-card h3 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* Macros */
+.macros-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.macro-item {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 10px;
+    flex: 1;
+    margin: 0 5px;
+}
+
+.macro-val {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.macro-name {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.advice-box ul {
+    list-style-position: inside;
+    margin-top: 10px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.advice-box li {
+    margin-bottom: 8px;
+}
+
+/* Workout */
+.workout-type {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    background: rgba(16, 185, 129, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--success);
+    font-weight: bold;
+}
+
+.schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.day-item {
+    background: var(--bg-dark);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+}
+
+.day-item strong {
+    color: var(--secondary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

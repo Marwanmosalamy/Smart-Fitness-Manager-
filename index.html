@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Fitness Designer (SFD)</title>
+    <!-- Importing Arabic Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/freepik__icon_for_project_of_smart_fitness_designer_th.png">
+</head>
+<body>
+    <div class="main-container">
+        <header class="top-nav">
+            <button id="langToggle" class="nav-btn">🇺🇸 English</button>
+            <button id="themeToggle" class="nav-btn">☀️ Light Mode</button>
+        </header>
+
+        <header class="hero-section">
+            <h1 data-i18n="heroTitle">مصمم لياقتك البدنية <span class="highlight">الذكـي</span></h1>
+            <p data-i18n="heroSubtitle">احصل على خطة غذائية وتدريبية متكاملة مبنية على أسس علمية في ثوانٍ.</p>
+        </header>
+
+        <main class="calculator-card">
+            <form id="fitnessForm">
+                <!-- Gender Selection -->
+                <div class="form-group gender-group">
+                    <label class="section-label" data-i18n="genderLabel">النوع</label>
+                    <div class="radio-options">
+                        <label class="radio-box">
+                            <input type="radio" name="gender" value="male" checked>
+                            <span class="icon">♂️</span>
+                            <span data-i18n="male">ذكر</span>
+                        </label>
+                        <label class="radio-box">
+                            <input type="radio" name="gender" value="female">
+                            <span class="icon">♀️</span>
+                            <span data-i18n="female">أنثى</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Numerical Inputs -->
+                <div class="input-grid">
+                    <div class="form-group">
+                        <label for="age" data-i18n="ageLabel">العمر (سنة)</label>
+                        <input type="number" id="age" placeholder="25" required min="10" max="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="weight" data-i18n="weightLabel">الوزن (كجم)</label>
+                        <input type="number" id="weight" placeholder="75" required min="30" max="250">
+                    </div>
+                    <div class="form-group">
+                        <label for="height" data-i18n="heightLabel">الطول (سم)</label>
+                        <input type="number" id="height" placeholder="175" required min="100" max="250">
+                    </div>
+                </div>
+
+                <!-- Activity Level -->
+                <div class="form-group">
+                    <label for="activity" data-i18n="activityLabel">مستوى النشاط اليومي</label>
+                    <select id="activity" required>
+                        <option value="1.2" data-i18n="actSedentary">خامل (لا رياضة / عمل مكتبي)</option>
+                        <option value="1.375" data-i18n="actLight">نشاط خفيف (رياضة 1-3 أيام/أسبوع)</option>
+                        <option value="1.55" data-i18n="actModerate">نشاط متوسط (رياضة 3-5 أيام/أسبوع)</option>
+                        <option value="1.725" data-i18n="actHeavy">نشاط عالي (رياضة 6-7 أيام/أسبوع)</option>
+                        <option value="1.9" data-i18n="actAthlete">نشاط عالي جداً (رياضة مكثفة + عمل شاق)</option>
+                    </select>
+                </div>
+
+                <!-- Goal -->
+                <div class="form-group">
+                    <label for="goal" data-i18n="goalLabel">الهدف</label>
+                    <select id="goal" required>
+                        <option value="lose" data-i18n="goalLose">خسارة الوزن (تنشيف)</option>
+                        <option value="maintain" data-i18n="goalMaintain">الحفاظ على الوزن</option>
+                        <option value="gain" data-i18n="goalGain">زيادة الوزن (تضخيم)</option>
+                    </select>
+                </div>
+
+                <!-- Training Days -->
+                <div class="form-group">
+                    <label for="days" data-i18n="daysLabel">عدد أيام التدريب المتاحة أسبوعياً</label>
+                    <select id="days" required>
+                        <option value="3" data-i18n="days3">3 أيام</option>
+                        <option value="4" data-i18n="days4">4 أيام</option>
+                        <option value="5" data-i18n="days5">5 أيام</option>
+                        <option value="6" data-i18n="days6">6 أيام</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="cta-button" data-i18n="submitBtn">أحصل على خطتك الآن</button>
+            </form>
+        </main>
+
+        <!-- Results Section (Hidden by default) -->
+        <section id="results" class="results-section hidden">
+            <div class="results-header">
+                <h2 data-i18n="resultsTitle">نتائج تحليلك الشخصي</h2>
+                <div class="calories-result">
+                    <span class="label" data-i18n="caloriesLabel">احتياجك اليومي من السعرات</span>
+                    <span class="number" id="targetCalories">0</span>
+                    <span class="unit" data-i18n="caloriesUnit">سعرة حرارية</span>
+                </div>
+            </div>
+
+            <div class="plan-grid">
+                <!-- Nutrition Card -->
+                <div class="plan-card nutrition">
+                    <h3 data-i18n="dietTitle">🍽️ الخطة الغذائية</h3>
+                    <div class="macros-container">
+                        <div class="macro-item protein">
+                            <span class="macro-val" id="proteinVal">0g</span>
+                            <span class="macro-name" data-i18n="protein">بروتين</span>
+                        </div>
+                        <div class="macro-item carbs">
+                            <span class="macro-val" id="carbsVal">0g</span>
+                            <span class="macro-name" data-i18n="carbs">كاربوهيدرات</span>
+                        </div>
+                        <div class="macro-item fats">
+                            <span class="macro-val" id="fatsVal">0g</span>
+                            <span class="macro-name" data-i18n="fats">دهون</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detailed-plan" id="mealPlanContainer">
+                        <!-- Dynamic Meal Cards will go here -->
+                        <h4 data-i18n="dailyMeals">وجباتك اليومية المقترحة:</h4>
+                        <div id="dailyMealsList" class="meals-list"></div>
+                    </div>
+
+                    <div class="advice-box">
+                        <h4 data-i18n="tipsTitle">نصائح غذائية:</h4>
+                        <ul id="nutritionTips"></ul>
+                    </div>
+                </div>
+
+                <!-- Workout Card -->
+                <div class="plan-card workout">
+                    <h3 data-i18n="workoutTitle">💪 النظام التدريبي المقترح</h3>
+                    <div class="workout-type">
+                        <span class="label" data-i18n="splitLabel">نظام التقسيم:</span>
+                        <span class="value" id="splitType">--</span>
+                    </div>
+                    
+                    <div class="detailed-plan" id="workoutPlanContainer">
+                         <!-- Dynamic Workout Exercises will go here -->
+                         <div id="workoutSchedule" class="schedule-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
