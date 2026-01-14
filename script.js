@@ -228,7 +228,7 @@ const exerciseData = {
             { name: { ar: "يوم 1: علوي (تركيز قوة)", en: "Day 1: Upper Power" }, exercises: ["Bench Press", "Barbell Row", "Overhead Press", "Pull Ups", "Dips", "Barbell Curls"] },
             { name: { ar: "يوم 2: سفلي (تركيز قوة)", en: "Day 2: Lower Power" }, exercises: ["Squat", "Romanian Deadlift", "Leg Press", "Standing Calf Raises", "Hanging Leg Raise"] },
             { name: { ar: "يوم 3: راحة", en: "Day 3: Rest" }, exercises: [] },
-            { name: { ar: "يوم 4: علوي (تركيز ضخامة)", en: "Day 4: Upper Hypertrophy" }, exercises: ["Incline Dumbbell Press", "Lat Pulldown", "Lateral Raise", "Onew Arm Dumbbell Row", "Tricep Pushdown", "Hammer Curls"] },
+            { name: { ar: "يوم 4: علوي (تركيز ضخامة)", en: "Day 4: Upper Hypertrophy" }, exercises: ["Incline Dumbbell Press", "Lat Pulldown", "Lateral Raise", "One Arm Dumbbell Row", "Tricep Pushdown", "Hammer Curls"] },
             { name: { ar: "يوم 5: سفلي (تركيز ضخامة)", en: "Day 5: Lower Hypertrophy" }, exercises: ["Front Squat", "Lunges", "Leg Extensions", "Leg Curls", "Seated Calf Raises", "Plank"] },
              { name: { ar: "يوم 6-7: راحة", en: "Day 6-7: Rest" }, exercises: [] }
         ]
@@ -255,9 +255,60 @@ const exerciseData = {
     }
 };
 
+const exerciseTranslations = {
+    "Barbell Squat": { ar: "سكوات بالبار (Squat)", en: "Barbell Squat" },
+    "Bench Press": { ar: "بينش برس (Bench Press)", en: "Bench Press" },
+    "Bent Over Row": { ar: "تجديف بالبار (Bent Over Row)", en: "Bent Over Row" },
+    "Overhead Press": { ar: "ضغط أكتاف بالبار (Overhead Press)", en: "Overhead Press" },
+    "Dumbbell Lunges": { ar: "طعن بالدمبل (Lunges)", en: "Dumbbell Lunges" },
+    "Plank": { ar: "تمرين البلانك (Plank)", en: "Plank" },
+    "Deadlift": { ar: "ديدليفت (Deadlift)", en: "Deadlift" },
+    "Incline Dumbbell Press": { ar: "ضغط صدر عالي بالدمبل", en: "Incline Dumbbell Press" },
+    "Lat Pulldown": { ar: "سحب عالي (Lat Pulldown)", en: "Lat Pulldown" },
+    "Leg Press": { ar: "دفع أرجل (Leg Press)", en: "Leg Press" },
+    "Lateral Raises": { ar: "رفرفة جانبي (Lateral Raises)", en: "Lateral Raises" },
+    "Bicep Curls": { ar: "بايسيبس بالبار", en: "Bicep Curls" },
+    "Goblet Squat": { ar: "جوبلت سكوات", en: "Goblet Squat" },
+    "Push Ups": { ar: "ضغط (Push Ups)", en: "Push Ups" },
+    "Pull Ups": { ar: "عقلة (Pull Ups)", en: "Pull Ups" },
+    "Romanian Deadlift": { ar: "ديدليفت روماني", en: "Romanian Deadlift" },
+    "Face Pulls": { ar: "سحب للوجه (Face Pulls)", en: "Face Pulls" },
+    "Tricep Dips": { ar: "متوازي (Dips)", en: "Tricep Dips" },
+    "Barbell Row": { ar: "تجديف بالبار", en: "Barbell Row" },
+    "Dips": { ar: "متوازي", en: "Dips" },
+    "Barbell Curls": { ar: "بايسيبس بالبار", en: "Barbell Curls" },
+    "Squat": { ar: "سكوات", en: "Squat" },
+    "Standing Calf Raises": { ar: "سمانة واقف", en: "Standing Calf Raises" },
+    "Hanging Leg Raise": { ar: "رفع أرجل (بطن)", en: "Hanging Leg Raise" },
+    "Lateral Raise": { ar: "رفرفة جانبي", en: "Lateral Raise" },
+    "One Arm Dumbbell Row": { ar: "منشار بالدمبل", en: "One Arm Dumbbell Row" },
+    "Tricep Pushdown": { ar: "تراي سحب كابل", en: "Tricep Pushdown" },
+    "Hammer Curls": { ar: "بايسيبس هامر", en: "Hammer Curls" },
+    "Front Squat": { ar: "سكوات أمامي", en: "Front Squat" },
+    "Lunges": { ar: "طعن (Lunges)", en: "Lunges" },
+    "Leg Extensions": { ar: "رفرفة أرجل أمامي", en: "Leg Extensions" },
+    "Leg Curls": { ar: "رفرفة أرجل خلفي", en: "Leg Curls" },
+    "Seated Calf Raises": { ar: "سمانة جالس", en: "Seated Calf Raises" },
+    "Chest Fly": { ar: "تجميع (فراشة)", en: "Chest Fly" },
+    "Skullcrushers": { ar: "تراي بار (Skullcrushers)", en: "Skullcrushers" },
+    "Seated Cable Row": { ar: "سحب أرضي", en: "Seated Cable Row" },
+    "Rear Delt Fly": { ar: "رفرفة خلفي", en: "Rear Delt Fly" },
+    "Cable Crunch": { ar: "بطن بالكابل", en: "Cable Crunch" },
+    "Dumbbell Shoulder Press": { ar: "ضغط أكتاف بالدمبل", en: "Dumbbell Shoulder Press" },
+    "Incline Bench Press": { ar: "ضغط صدر عالي بالبار", en: "Incline Bench Press" },
+    "Cable Fly": { ar: "تجميع بالكابل", en: "Cable Fly" },
+    "Tricep Kickback": { ar: "تراي كيك باك", en: "Tricep Kickback" },
+    "T-Bar Row": { ar: "تجديف T-Bar", en: "T-Bar Row" },
+    "Preacher Curls": { ar: "بايسيبس حصان", en: "Preacher Curls" },
+    "Concentration Curls": { ar: "بايسيبس ارتكاز", en: "Concentration Curls" },
+    "Shrugs": { ar: "ترابيس (Shrugs)", en: "Shrugs" },
+    "Calf Raises": { ar: "سمانة", en: "Calf Raises" }
+};
+
 // State
 let currentLang = 'ar';
 let currentTheme = 'dark';
+let lastCalculatedData = null;
 
 // --- Initialization ---
 
@@ -285,6 +336,19 @@ function toggleLanguage() {
     // Update Button Text Logic
     const langBtn = document.getElementById('langToggle');
     langBtn.textContent = translations[currentLang].langBtn;
+
+    // Rerender results if they exist (to translate them)
+    if (lastCalculatedData) {
+        displayResults(
+            lastCalculatedData.targetCalories,
+            lastCalculatedData.proteinGrams,
+            lastCalculatedData.carbGrams,
+            lastCalculatedData.fatGrams,
+            lastCalculatedData.mealPlan,
+            lastCalculatedData.workoutPlan,
+            lastCalculatedData.goal
+        );
+    }
 }
 
 function updateLanguageUI() {
@@ -351,7 +415,17 @@ function handleFormSubmit(e) {
     const mealPlan = generateMealPlan(goal);
     const workoutPlan = generateWorkoutPlan(trainingDays);
 
-    // 5. Display Results
+    // 5. Save State & Display Results
+    lastCalculatedData = {
+        targetCalories,
+        proteinGrams,
+        carbGrams,
+        fatGrams,
+        mealPlan,
+        workoutPlan,
+        goal
+    };
+
     displayResults(targetCalories, proteinGrams, carbGrams, fatGrams, mealPlan, workoutPlan, goal);
 }
 
@@ -420,10 +494,17 @@ function displayResults(cals, pro, carb, fat, mealsObj, workoutObj, goal) {
         if (day.exercises.length > 0) {
             day.exercises.forEach(ex => {
                 const videoUrl = `https://www.youtube.com/results?search_query=how+to+do+${ex.replace(/\s/g, '+')}+exercise`;
+                
+                // Get translated name or fallback to original
+                let exName = ex;
+                if (exerciseTranslations[ex] && exerciseTranslations[ex][currentLang]) {
+                    exName = exerciseTranslations[ex][currentLang];
+                }
+
                 exercisesHtml += `
                     <div class="exercise-item">
                         <div class="exercise-info">
-                            <span class="exercise-name">${ex}</span>
+                            <span class="exercise-name">${exName}</span>
                             <span class="exercise-sets">3 Sets x 10-12 Reps</span>
                         </div>
                         <a href="${videoUrl}" target="_blank" class="video-link">
